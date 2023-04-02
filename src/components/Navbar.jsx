@@ -33,8 +33,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="bg-gray-800 text-white shadow-lg">
-      <div className=" mx-auto px-4 py-4 flex flex-wrap items-center justify-between">
+    <nav className="bg-gray-800 text-white shadow-lg ">
+      <div className=" mx-auto px-4 py-4 flex flex-wrap items-center justify-between max-w-[1500px]">
         <Link to="/" className="text-2xl font-bold">
           Epari
         </Link>

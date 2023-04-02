@@ -10,7 +10,7 @@ export default function CheckoutSuccess() {
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
-    <div>
+    <div className="flex items-center justify-center min-h-[92vh]">
       <Success message={`Your payment of $${totalPrice} was successful!`} />
     </div>
   );

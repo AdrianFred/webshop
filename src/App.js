@@ -18,7 +18,7 @@ function App() {
             <Route path="product/:id" element={<ProductPage />} />
             <Route path="contact" element={<Contact />} />
             <Route path="cart" element={<Cart />} />
-            <Route path="checkout-success" element={<CheckoutSuccess message="test" />} />
+            <Route path="checkout-success" element={<CheckoutSuccess />} />
           </Routes>
         </Layout>
       </CartProvider>
