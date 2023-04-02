@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "./CartContext";
 
 export default function Checkout() {
-  const { cartItems, addToCart, removeFromCart, updateQuantity } = useContext(CartContext);
+  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
 
   const handleRemoveFromCart = (id) => {
     removeFromCart({ id, quantity: -1 });
