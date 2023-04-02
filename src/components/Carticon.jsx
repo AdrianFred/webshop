@@ -37,14 +37,20 @@ export default function CartIcon({ itemCount }) {
                       </p>
                     </div>
                     <div className="w-1/3 text-right">
-                      <p className="text-lg font-medium">${(item.price * item.quantity).toFixed(2)}</p>
+                      {item.discountedPrice !== item.price ? (
+                        <p>${(item.discountedPrice * item.quantity).toFixed(2)}</p>
+                      ) : (
+                        <p>${(item.price * item.quantity).toFixed(2)}</p>
+                      )}
                     </div>
                   </div>
                 ))}
                 <hr className="my-4" />
                 <div className="flex justify-between">
                   <div className="font-medium text-lg">Total:</div>
-                  <div className="font-bold text-lg">${totalPrice.toFixed(2)}</div>
+                  <div className="font-bold text-lg">
+                    ${cartItems.reduce((total, item) => (item.discountedPrice || item.price) * item.quantity + total, 0).toFixed(2)}
+                  </div>
                 </div>
                 <div className="mt-4">
                   <Link to="/cart">

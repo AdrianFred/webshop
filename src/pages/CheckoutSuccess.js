@@ -7,7 +7,7 @@ export default function CheckoutSuccess() {
   const { cartItems } = useContext(CartContext);
 
   // Total price
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const totalPrice = cartItems.reduce((total, item) => (item.discountedPrice || item.price) * item.quantity + total, 0).toFixed(2);
 
   return (
     <div className="flex items-center justify-center min-h-[92vh]">

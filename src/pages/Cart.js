@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CartContext } from "../components/CartContext";
 import { Link } from "react-router-dom";
 
 export default function Checkout() {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
+  const [price, setPrice] = useState(0);
 
   const handleRemoveFromCart = (id) => {
     removeFromCart({ id, quantity: -1 });
@@ -12,7 +13,6 @@ export default function Checkout() {
   const handleUpdateQuantity = (id, newQuantity) => {
     updateQuantity(id, newQuantity);
   };
-  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-screen-md">
@@ -27,7 +27,7 @@ export default function Checkout() {
                   <img className="w-16 h-16 object-cover object-center" src={item.imageUrl} alt={item.name} />
                   <div className="ml-4">
                     <h2 className="text-xl font-bold">{item.name}</h2>
-                    <p>Price: ${item.price}</p>
+                    {item.price !== item.discountedPrice ? <p>${item.discountedPrice}</p> : <p>Price: ${item.price}</p>}
                     <label htmlFor={`quantity-${item.id}`}>Quantity: </label>
                     <input
                       id={`quantity-${item.id}`}
@@ -52,7 +52,9 @@ export default function Checkout() {
         <div className="w-full md:w-1/3 mt-8 md:mt-0 md:ml-8">
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h2 className="text-xl font-bold mb-4">Order Summary</h2>
-            <p className="mb-4">Total Price: ${totalPrice.toFixed(2)}</p>
+            <p className="mb-4">
+              Total Price: ${cartItems.reduce((total, item) => (item.discountedPrice || item.price) * item.quantity + total, 0).toFixed(2)}
+            </p>
             <Link to="/checkout-success">
               <div className="text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 w-full focus:outline-none focus:ring focus:ring-blue-500">
                 <div> {cartItems.length === 0 ? "Cart is Empty" : "Proceed to Payment"}</div>
