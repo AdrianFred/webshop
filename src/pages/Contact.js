@@ -59,14 +59,14 @@ const ContactForm = () => {
         <label htmlFor="message" className="block mb-2">
           Message:
         </label>
-        <textarea
+        <input
           id="message"
           className="w-full p-2 mb-4 border border-gray-200 rounded"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           minLength={3}
           required
-        ></textarea>
+        ></input>
 
         <button type="submit" className="w-full p-2 text-white bg-blue-500 rounded hover:bg-blue-600">
           Submit
