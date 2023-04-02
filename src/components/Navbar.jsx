@@ -1,4 +1,4 @@
-import React, { ref } from "react";
+import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
@@ -11,6 +11,8 @@ export default function Navbar() {
   const { cartItems } = React.useContext(CartContext);
   const cartItemsCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const [cartCount, setCartCount] = useState(cartItems.reduce((total, item) => total + item.quantity, 0));
+
+  const ref = useRef(null);
 
   useEffect(() => {
     setCartCount(cartItemsCount);
