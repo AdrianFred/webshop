@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { CartContext } from "./CartContext";
@@ -6,11 +6,11 @@ import { CartContext } from "./CartContext";
 export default function CartIcon({ itemCount }) {
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems } = React.useContext(CartContext);
-  const [totalPrice, setTotalPrice] = useState(cartItems.reduce((total, item) => total + item.price * item.quantity, 0));
+  //   const [totalPrice, setTotalPrice] = useState(cartItems.reduce((total, item) => total + item.price * item.quantity, 0));
 
-  useEffect(() => {
-    setTotalPrice(cartItems.reduce((total, item) => total + item.price * item.quantity, 0));
-  }, [cartItems]);
+  //   useEffect(() => {
+  //     setTotalPrice(cartItems.reduce((total, item) => total + item.price * item.quantity, 0));
+  //   }, [cartItems]);
 
   const handleCartClick = () => {
     setIsOpen(!isOpen);
