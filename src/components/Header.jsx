@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import headerImage from "../image/headerImage.jpg";
-import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Header() {
-  const [searchTerm, setSearchTerm] = useState("");
-  console.log(searchTerm);
-
   return (
     <header className="relative">
       <div className=" ">

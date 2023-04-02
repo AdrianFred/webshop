@@ -1,7 +1,7 @@
 import React from "react";
 import Success from "../components/Success";
 import { CartContext } from "../components/CartContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 export default function CheckoutSuccess() {
   const { cartItems } = useContext(CartContext);

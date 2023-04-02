@@ -1,6 +1,5 @@
 import "./App.css";
-import ViewProducts from "./components/HomeProduct";
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import ProductPage from "./pages/ProductPage";
