@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ref } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
@@ -69,33 +69,32 @@ export default function Navbar() {
         leave="transition duration-100 ease-in"
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
+        ref={ref}
       >
-        {(ref) => (
-          <div className="lg:hidden" ref={ref}>
-            <div className="px-2 pt-2 pb-3 sm:px-3">
-              <Link
-                to="/"
-                className="block
+        <div className="lg:hidden">
+          <div className="px-2 pt-2 pb-3 sm:px-3">
+            <Link
+              to="/"
+              className="block
                 px-3 py-2 rounded-md text-base font-medium text-white 
                 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-              >
-                Home
-              </Link>
-              <Link
-                to="/cart"
-                className="mt-1 block px-3 py-2 rounded-md font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-              >
-                Shopping Cart
-              </Link>
-              <Link
-                to="/contact"
-                className="mt-1 block px-3 py-2 rounded-md font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
-              >
-                Contact Us
-              </Link>
-            </div>
+            >
+              Home
+            </Link>
+            <Link
+              to="/cart"
+              className="mt-1 block px-3 py-2 rounded-md font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            >
+              Shopping Cart
+            </Link>
+            <Link
+              to="/contact"
+              className="mt-1 block px-3 py-2 rounded-md font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700 transition duration-150 ease-in-out"
+            >
+              Contact Us
+            </Link>
           </div>
-        )}
+        </div>
       </Transition>
     </nav>
   );
