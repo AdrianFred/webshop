@@ -19,6 +19,10 @@ For now theres 3 pages which is Home, shopping-cart and a contact page. Home is 
 - [React Select](https://react-select.com/home)
 - [React-Hot-toast](https://react-hot-toast.com/)
 
+## Live Demo
+
+https://illustrious-palmier-be84fb.netlify.app/
+
 ## Getting Started
 
 ### Installing
